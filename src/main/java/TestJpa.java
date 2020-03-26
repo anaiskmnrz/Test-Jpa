@@ -52,6 +52,18 @@ public class TestJpa {
         Livre singleResult = createQuery.getSingleResult();
         System.out.println(singleResult);
         
+        // extraire un emprunt avec tous les livres associés
+       TypedQuery<Emprunt> createQuery2 = entityManager.createQuery("SELECT e FROM Emprunt e",Emprunt.class);
+       List<Emprunt> resultList2 = createQuery2.getResultList();
+       
+       for (Emprunt emprunt : resultList2) {
+    	   System.out.println(emprunt);
+       }
+       
+        //createQuery.setParameter("titre", "Guerre et Paix");
+  
+        
+        
         entityManager.close();
         entityManagerFactory.close();
 	}

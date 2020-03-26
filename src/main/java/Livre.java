@@ -6,7 +6,7 @@ import javax.persistence.Table;
  * 
  */
 
-/** Représentation d'un livre
+/** Représentation d'un livre de la bibliotèque
  *
  * @author KOMINIARZ Anaïs
  *
