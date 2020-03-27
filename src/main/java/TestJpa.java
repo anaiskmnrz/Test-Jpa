@@ -46,7 +46,7 @@ public class TestJpa {
         createQuery.setParameter("titre", "Guerre et Paix");
   
         // soit de cette façon
-        List<Livre> resultList = createQuery.getResultList();
+        //List<Livre> resultList = createQuery.getResultList();
         
         // soit de celle-ci car on est sûrs qu'il n'y a qu'un Guerre et Paix
         Livre singleResult = createQuery.getSingleResult();
