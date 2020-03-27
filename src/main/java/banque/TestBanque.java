@@ -127,7 +127,7 @@ public class TestBanque {
 	         lA.getOperations().add(virement);
 	         
 	         entityManager.persist(virement);
-	         entityManager.persist(lA);
+	         entityManager.persist(lA); 
 	         
 	        //inserer des operations de type operation sur un compte 
 	         Operation operation4 = new Operation(date3,150.0,"remboursement des vacances ");
