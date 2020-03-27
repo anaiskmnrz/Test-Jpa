@@ -1,5 +1,8 @@
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +24,12 @@ public class Livre {
 	private String titre;
 	private String auteur;
 
+	/*Travail en plus car j'avais mal lu la consigne
+	 * 
+	 * @ManyToMany(mappedBy="livres") 
+	private Set<Emprunt> emprunts;*/
+
+	
 	@Override
 	public String toString() {
 		return "Titre : " + titre + " - Auteur : " + auteur;
@@ -73,6 +82,23 @@ public class Livre {
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
+
+	
+	/** Getter
+	 *
+	 * @return the emprunts
+	 */
+	/*public Set<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+*/
+	/** Setter
+	 *
+	 * @param emprunts the emprunts to set
+	 */
+	/*public void setEmprunts(Set<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}*/
 	
 	
 	

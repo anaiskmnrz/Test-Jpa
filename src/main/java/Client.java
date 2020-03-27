@@ -1,6 +1,9 @@
-import javax.persistence.Column;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /** Représentation d'un client de la bibliothèque
@@ -17,6 +20,15 @@ public class Client {
 	
 	private String nom;
 	private String prenom;
+	
+	@OneToMany(mappedBy="client") 
+	private Set<Emprunt> emprunts; // référence vers les chambres
+	
+	
+	public Client() {
+		emprunts = new HashSet<Emprunt>(); 
+	} 
+	
 	/** Getter
 	 *
 	 * @return the id
@@ -58,5 +70,21 @@ public class Client {
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	/** Getter
+	 *
+	 * @return the emprunts
+	 */
+	public Set<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	/** Setter
+	 *
+	 * @param emprunts the emprunts to set
+	 */
+	public void setEmprunts(Set<Emprunt> emprunts) {
+		this.emprunts = emprunts;
 	}
 }

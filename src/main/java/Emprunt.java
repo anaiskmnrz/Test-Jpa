@@ -39,8 +39,12 @@ public class Emprunt {
 				joinColumns = @JoinColumn(name = "ID_LIV", referencedColumnName = "ID"),
 				inverseJoinColumns = @JoinColumn(name = "ID_EMP",referencedColumnName = "ID")
 	)
-	private Set<Livre> livre;
+	private Set<Livre> livres;
 	
+	@Override
+	public String toString() {
+		return " Emprunt du " + date_debut + " au " + date_fin + " - délai : " + delai + " jours";
+	}
 	
 	/** Getter
 	 *
@@ -111,5 +115,33 @@ public class Emprunt {
 	 */
 	public void setId_client(Integer id_client) {
 		this.id_client = id_client;
+	}
+	/** Getter
+	 *
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+	/** Setter
+	 *
+	 * @param client the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	/** Getter
+	 *
+	 * @return the livre
+	 */
+	public Set<Livre> getLivre() {
+		return livres;
+	}
+	/** Setter
+	 *
+	 * @param livre the livre to set
+	 */
+	public void setLivre(Set<Livre> livres) {
+		this.livres = livres;
 	}
 }

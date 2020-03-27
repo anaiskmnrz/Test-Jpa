@@ -27,16 +27,16 @@ public class TestJpa {
 	
 	public static void main(String[] args) {
 		
-		// étape 2 - Construction de l'usine à EntityManager (EntityManagerFactory - vie durant toute l'application)
+		// Construction de l'usine à EntityManager (EntityManagerFactory - vie durant toute l'application)
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("bibliotheque-pu");
 
-        // étape 3 - Obtention d'une instance d'EntityManager (idéalement durée de vie courte)
+        // Obtention d'une instance d'EntityManager (idéalement durée de vie courte)
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // vérification que l'entityManager est bien ouvert
         LOGGER.log(Level.INFO, "Etat : " + entityManager.isOpen());
         
-        //récupérer le livre d'id 3
+        // récupération du livre d'id 3
         Livre livre1 = entityManager.find(Livre.class, 3);
         LOGGER.log(Level.INFO, "Id du livre : " + livre1.getId() + " - Titre du livre : " + livre1.getTitre() + 
         		" - Auteur du livre : " + livre1.getAuteur());
@@ -57,12 +57,20 @@ public class TestJpa {
        List<Emprunt> resultList2 = createQuery2.getResultList();
        
        for (Emprunt emprunt : resultList2) {
-    	   System.out.println(emprunt);
+    	   System.out.println(emprunt.getLivre());
        }
        
-        //createQuery.setParameter("titre", "Guerre et Paix");
-  
-        
+       /* Travail en plus car j'avais mal lu la consigne
+        * 
+        * // extraire un livre avec tous ses emprunts associés
+       Livre livre2 = entityManager.find(Livre.class, 2);
+       System.out.println(livre2.getEmprunts());
+        */
+       
+       
+        // extraire tous les emprunts d'un client donné
+       Client client1 = entityManager.find(Client.class, 2);
+       System.out.println(client1.getEmprunts());
         
         entityManager.close();
         entityManagerFactory.close();
