@@ -19,7 +19,7 @@
             <version>2.2</version>
         </dependency>
 
-        <!--  Le choix de mon implémentation => Hibernate -->
+        <!-- Le choix de mon implémentation => Hibernate -->
         <!-- L'implémentation de référence => EclipseLink -->
         <dependency>
             <groupId>org.hibernate</groupId>
